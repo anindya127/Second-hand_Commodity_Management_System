@@ -1,0 +1,49 @@
+{% extends "core/base.html" %}
+
+{% block title %}Items {% endblock %}
+
+{% block content %}
+<div class="pb-6 p-5 grid grid-cols-4 gap-4 bg-gray-200 rounded-xl">
+    <div class="col-span-1">
+        <form action="{% url 'item:items' %}" method="get">
+            <input type="text" name="search" placeholder="Search" class="w-full p-2 rounded-xl">
+            <button type="submit"
+                class="w-1/2 p-2 mt-2 bg-teal-400 text-white rounded-xl hover:bg-teal-600">Search</button>
+        </form>
+
+        <hr class="my-4">
+
+        <p class="font-semibold">Category</p>
+
+        <ul>
+            <li class="px-2 py-2 rounded-xl"><a href="{% url 'item:items' %}">All</a></li>
+            
+            {% for category in categories %}
+            <li class="px-2 py-2 rounded-xl{% if category.id == category_id %} bg-gray-300 {% endif %}">
+                <a href="{% url 'item:items' %}?category={{ category.id }}&search={{ search }} ">{{ category.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-span-3">
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in items %}
+            <div>
+                <a href="{% url 'item:detail' item.id %}">
+                    <div>
+                        <img src="{{ item.image.url }}" class="w-full h-48 object-cover rounded-t-xl">
+
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h3 class="text-lg font-bold">{{ item.name }}</h3>
+                            <p class="text-sm text-gray-500">{{ item.description }}</p>
+                            <p class="text-sm text-gray-500">Price: {{ item.price }} RMB</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

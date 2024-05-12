@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% block title %}Conversation {% endblock %}
+
+{% block content %}
+
+<div class="space-y-6">
+    {% for message in conversation.message.all %}
+        <div class="p-6 flex {% if message.user != request.user %} bg-blue-200 {% else %} bg-gray-200 {% endif %} rounded-xl">
+            <div>
+                <p class="mb-4"><strong>{{ message.user.username }}</strong> | {{ message.created_at }}</p>
+                <p>{{ message.message }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<form method="post" action=".">
+    {% csrf_token %}
+
+    <div class="mb-4">
+        {{ form.message.label_tag }}</br>
+        {{ form.message }}
+    </div>
+
+    <button type="submit"
+        class="px-3 py-2 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-600">Send</button>
+</form>
+
+{% endblock %}
+
