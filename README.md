@@ -1,6 +1,6 @@
 # Second-hand Commodity Management System
 
-The IMSDP (Second-hand Commodity Management System) is a project aimed at managing and tracking second-hand commodities. It provides functionalities for users to add, view, and search for second-hand items. The system allows users to easily install and run the application using npm. Contributions to the project are welcome, and the project is licensed under the MIT License.
+The IMSDP (Second-hand Commodity Management System) is a project aimed at managing and tracking second-hand commodities. It provides functionalities for users to add, view, and search for second-hand items. The system allows users to easily install and run the application using python. Contributions to the project are welcome, and the project is licensed under the MIT License.
 
 ## Table of Contents
 
