@@ -6,7 +6,6 @@ The IMSDP (Second-hand Commodity Management System) is a project aimed at managi
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
