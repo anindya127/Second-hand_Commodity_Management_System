@@ -1,1 +1,1 @@
-#Second-hand Commodity Management System#
+Second-hand Commodity Management System
